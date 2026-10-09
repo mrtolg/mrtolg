@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "data" / "contributions.json"
 ACTIVITY = ROOT / "data" / "repo-activity.json"
-OUT = ROOT / "contrib-heatmap.svg"
+OUT = ROOT / "entrance-graph.svg"
 
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -46,14 +46,12 @@ def paint_entrance(payload):
             row["level"] = max(row.get("level", 0), level_for(row["count"]))
             continue
         roll = random.Random(day.toordinal() * 9973 + 17).randrange(100)
-        if roll < 14:
+        if roll < 18:
             row["level"] = 0
-        elif roll < 58:
+        elif roll < 70:
             row["level"] = 1
-        elif roll < 86:
-            row["level"] = 2
         else:
-            row["level"] = 3
+            row["level"] = 2
 
 
 def load():
