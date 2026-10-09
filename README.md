@@ -17,7 +17,7 @@ Second-year **BSc Computer Science with Artificial Intelligence** student at the
 
 ### Stack
 
-TypeScript, Rust, JavaScript, HTML, CSS, Python, Java, PowerShell, and Git.
+C, C#, TypeScript, Rust, JavaScript, HTML, CSS, Python, Java, PowerShell, and Git.
 
 The desktop workbench is TypeScript and Rust, with JavaScript, HTML, and CSS on the interface. Java is a separate repository. Python regenerates the contribution graph on this page.
 
