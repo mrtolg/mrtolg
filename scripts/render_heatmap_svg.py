@@ -46,12 +46,16 @@ def paint_entrance(payload):
             row["level"] = max(row.get("level", 0), level_for(row["count"]))
             continue
         roll = random.Random(day.toordinal() * 9973 + 17).randrange(100)
-        if roll < 18:
+        if roll < 16:
             row["level"] = 0
-        elif roll < 70:
+        elif roll < 66:
             row["level"] = 1
-        else:
+        elif roll < 92:
             row["level"] = 2
+        elif roll < 97:
+            row["level"] = 3
+        else:
+            row["level"] = 4
 
 
 def load():
