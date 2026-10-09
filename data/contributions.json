@@ -1,7 +1,7 @@
 {
   "user": "mrtolg",
-  "total": 10,
-  "heading_total": 10,
+  "total": 12,
+  "heading_total": 12,
   "days": [
     {
       "date": "2025-10-05",
@@ -1850,7 +1850,7 @@
     },
     {
       "date": "2026-10-09",
-      "count": 10,
+      "count": 12,
       "level": 4
     }
   ],
