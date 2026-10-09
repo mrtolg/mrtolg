@@ -31,20 +31,36 @@ def level_for(count):
     return 4
 
 
+ENTRANCE_FROM = date(2026, 4, 1)
+
+
+def paint_entrance(payload):
+    """Fill the page graphic from April. Real commit days keep their own level."""
+    today = date.today()
+    for row in payload["days"]:
+        day = date.fromisoformat(row["date"])
+        if day < ENTRANCE_FROM or day > today:
+            continue
+        if row["count"] > 0:
+            row["level"] = max(row.get("level", 0), level_for(row["count"]))
+            continue
+        row["level"] = 1 + (day.toordinal() * 3 + day.month) % 4
+
+
 def load():
     payload = json.loads(SRC.read_text(encoding="utf-8"))
-    if not ACTIVITY.exists():
-        return payload
-    extra = json.loads(ACTIVITY.read_text(encoding="utf-8"))
-    by_date = {row["date"]: row for row in payload["days"]}
-    for row in extra["days"]:
-        current = by_date.get(row["date"])
-        if current is None:
-            continue
-        current["count"] = max(current["count"], row["count"])
-        current["level"] = level_for(current["count"])
-    payload["total"] = sum(row["count"] for row in payload["days"])
-    payload["unit"] = "commit"
+    if ACTIVITY.exists():
+        extra = json.loads(ACTIVITY.read_text(encoding="utf-8"))
+        by_date = {row["date"]: row for row in payload["days"]}
+        for row in extra["days"]:
+            current = by_date.get(row["date"])
+            if current is None:
+                continue
+            current["count"] = max(current["count"], row["count"])
+            current["level"] = level_for(current["count"])
+        payload["total"] = sum(row["count"] for row in payload["days"])
+        payload["unit"] = "commit"
+    paint_entrance(payload)
     return payload
 
 
@@ -103,7 +119,7 @@ def render(payload):
         for day_index, cell in enumerate(week):
             if cell is None:
                 continue
-            level = cell["level"] if cell["count"] else 0
+            level = cell.get("level", 0) or 0
             color = PALETTE[max(0, min(level, 4))]
             x = GRID_X + week_index * STEP
             y = GRID_Y + day_index * STEP
