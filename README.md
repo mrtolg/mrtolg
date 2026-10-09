@@ -27,6 +27,6 @@ The desktop workbench is TypeScript and Rust, with JavaScript, HTML, and CSS on 
 
 <h3><code>mert@york ~ $ ./contributions.sh</code></h3>
 
-<img src="./contrib-heatmap.svg" width="840" alt="Commits over the last year" />
+<img src="./contrib-heatmap.svg?v=3" width="840" alt="Commits over the last year" />
 
 </div>

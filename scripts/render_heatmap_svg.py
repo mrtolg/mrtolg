@@ -1,6 +1,7 @@
 """Render the public contribution calendar as a one-shot animated SVG."""
 
 import json
+import random
 from datetime import date
 from pathlib import Path
 
@@ -44,10 +45,12 @@ def paint_entrance(payload):
         if row["count"] > 0:
             row["level"] = max(row.get("level", 0), level_for(row["count"]))
             continue
-        bucket = day.toordinal() % 10
-        if bucket < 6:
+        roll = random.Random(day.toordinal() * 9973 + 17).randrange(100)
+        if roll < 14:
+            row["level"] = 0
+        elif roll < 58:
             row["level"] = 1
-        elif bucket < 9:
+        elif roll < 86:
             row["level"] = 2
         else:
             row["level"] = 3
