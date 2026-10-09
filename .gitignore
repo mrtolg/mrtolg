@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+_contrib_sample.html
+_ref_readme.md
+_ref_heat.svg
+preview.html
