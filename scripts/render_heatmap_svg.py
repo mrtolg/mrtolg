@@ -15,7 +15,7 @@ STEP = 16
 GRID_X = 36
 GRID_Y = 32
 WIDTH = 900
-HEIGHT = 188
+HEIGHT = 220
 
 
 def load():
@@ -59,7 +59,7 @@ def render(payload):
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img">',
         "<title>Public GitHub contributions in the last year</title>",
         "<style>",
-        "  text.lbl { fill:#7d8590; font-size:12px; font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif; }",
+        "  text.lbl, text.credit { fill:#7d8590; font-size:12px; font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif; }",
         "  text.total { fill:#e6edf3; font-size:14px; font-weight:650; font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif; }",
         "  .cell { transform-box:fill-box; transform-origin:center; opacity:0; animation:pop 0.5s ease-out both; }",
         "  @keyframes pop { 0%{opacity:0;transform:scale(.25)} 70%{opacity:1;transform:scale(1.08)} 100%{opacity:1;transform:scale(1)} }",
@@ -100,6 +100,8 @@ def render(payload):
             f'<rect x="{x}" y="161" width="{CELL}" height="{CELL}" rx="2.5" fill="{color}"/>'
         )
     parts.append(f'<text class="lbl" x="{legend_x + 36 + 5 * STEP + 4}" y="172">More</text>')
+    credit = payload.get("credit") or "by mert olgun"
+    parts.append(f'<text class="credit" x="{WIDTH / 2}" y="206" text-anchor="middle">{credit}</text>')
     parts.append("</svg>")
     return "".join(parts)
 

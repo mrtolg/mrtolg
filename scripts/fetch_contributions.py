@@ -122,6 +122,7 @@ def main():
     )
     response.raise_for_status()
     payload = parse_contributions(response.text)
+    payload["credit"] = "by mert olgun"
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"{payload['total']} contributions across {len(payload['days'])} days")

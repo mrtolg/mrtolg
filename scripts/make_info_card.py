@@ -12,7 +12,6 @@ ROWS = [
     ("now", "Year 2 of 3"),
     ("degree", "BSc CS with AI"),
     ("school", "University of York"),
-    ("seeking", "Summer 2027 internship"),
     ("focus", "Explain it, then test it"),
 ]
 
@@ -21,7 +20,7 @@ def render():
     static = os.environ.get("STATIC") == "1"
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img">',
-        "<title>Year 2, BSc Computer Science with AI, University of York. Seeking a summer 2027 internship.</title>",
+        "<title>Year 2, BSc Computer Science with AI, University of York.</title>",
         "<style>",
         "  text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }",
         "  .prompt { fill:#8b949e; font-size:16px; }",
@@ -47,7 +46,7 @@ def render():
         ]
     )
     for index, (key, value) in enumerate(ROWS):
-        y = 118 + index * 48
+        y = 150 + index * 52
         delay = 0.2 + index * 0.12
         attrs = "" if static else f' class="line" style="animation-delay:{delay:.2f}s"'
         parts.append(f"<g{attrs}>")
