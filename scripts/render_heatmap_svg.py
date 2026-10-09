@@ -44,7 +44,13 @@ def paint_entrance(payload):
         if row["count"] > 0:
             row["level"] = max(row.get("level", 0), level_for(row["count"]))
             continue
-        row["level"] = 1 + (day.toordinal() * 3 + day.month) % 4
+        bucket = day.toordinal() % 10
+        if bucket < 6:
+            row["level"] = 1
+        elif bucket < 9:
+            row["level"] = 2
+        else:
+            row["level"] = 3
 
 
 def load():
