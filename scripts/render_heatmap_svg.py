@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "data" / "contributions.json"
+ACTIVITY = ROOT / "data" / "repo-activity.json"
 OUT = ROOT / "contrib-heatmap.svg"
 
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
@@ -18,8 +19,33 @@ WIDTH = 900
 HEIGHT = 220
 
 
+def level_for(count):
+    if count <= 0:
+        return 0
+    if count < 3:
+        return 1
+    if count < 7:
+        return 2
+    if count < 15:
+        return 3
+    return 4
+
+
 def load():
-    return json.loads(SRC.read_text(encoding="utf-8"))
+    payload = json.loads(SRC.read_text(encoding="utf-8"))
+    if not ACTIVITY.exists():
+        return payload
+    extra = json.loads(ACTIVITY.read_text(encoding="utf-8"))
+    by_date = {row["date"]: row for row in payload["days"]}
+    for row in extra["days"]:
+        current = by_date.get(row["date"])
+        if current is None:
+            continue
+        current["count"] = max(current["count"], row["count"])
+        current["level"] = level_for(current["count"])
+    payload["total"] = sum(row["count"] for row in payload["days"])
+    payload["unit"] = "commit"
+    return payload
 
 
 def weeks_from(payload):
@@ -88,7 +114,10 @@ def render(payload):
             )
 
     total = payload["total"]
-    noun = "contribution" if total == 1 else "contributions"
+    if payload.get("unit") == "commit":
+        noun = "commit" if total == 1 else "commits"
+    else:
+        noun = "contribution" if total == 1 else "contributions"
     parts.append(
         f'<text class="total" x="{GRID_X}" y="172">{total:,} {noun} in the last year</text>'
     )
