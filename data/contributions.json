@@ -1,7 +1,7 @@
 {
   "user": "mrtolg",
-  "total": 0,
-  "heading_total": 0,
+  "total": 2,
+  "heading_total": 2,
   "days": [
     {
       "date": "2025-10-05",
@@ -1850,8 +1850,8 @@
     },
     {
       "date": "2026-10-09",
-      "count": 0,
-      "level": 0
+      "count": 2,
+      "level": 4
     }
   ],
   "weeks": [
@@ -2333,6 +2333,6 @@
       null
     ]
   ],
-  "current_streak": 0,
-  "longest_streak": 0
+  "current_streak": 1,
+  "longest_streak": 1
 }
