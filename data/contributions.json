@@ -1,7 +1,7 @@
 {
   "user": "mrtolg",
-  "total": 20,
-  "heading_total": 20,
+  "total": 99,
+  "heading_total": 99,
   "days": [
     {
       "date": "2025-10-12",
@@ -1350,8 +1350,8 @@
     },
     {
       "date": "2026-07-08",
-      "count": 0,
-      "level": 0
+      "count": 4,
+      "level": 4
     },
     {
       "date": "2026-07-09",
@@ -1360,8 +1360,8 @@
     },
     {
       "date": "2026-07-10",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     },
     {
       "date": "2026-07-11",
@@ -1821,10 +1821,15 @@
     {
       "date": "2026-10-10",
       "count": 1,
-      "level": 4
+      "level": 1
     },
     {
       "date": "2026-10-11",
+      "count": 74,
+      "level": 4
+    },
+    {
+      "date": "2026-10-12",
       "count": 0,
       "level": 0
     }
@@ -2300,7 +2305,7 @@
     ],
     [
       "2026-10-11",
-      null,
+      "2026-10-12",
       null,
       null,
       null,
@@ -2308,7 +2313,7 @@
       null
     ]
   ],
-  "current_streak": 2,
-  "longest_streak": 2,
+  "current_streak": 3,
+  "longest_streak": 3,
   "credit": "by mert olgun"
 }
