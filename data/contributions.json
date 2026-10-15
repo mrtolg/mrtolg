@@ -1,7 +1,7 @@
 {
   "user": "mrtolg",
-  "total": 101,
-  "heading_total": 101,
+  "total": 110,
+  "heading_total": 110,
   "days": [
     {
       "date": "2025-10-12",
@@ -1825,7 +1825,7 @@
     },
     {
       "date": "2026-10-11",
-      "count": 74,
+      "count": 82,
       "level": 4
     },
     {
@@ -1840,6 +1840,11 @@
     },
     {
       "date": "2026-10-14",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-10-15",
       "count": 0,
       "level": 0
     }
@@ -2318,12 +2323,12 @@
       "2026-10-12",
       "2026-10-13",
       "2026-10-14",
-      null,
+      "2026-10-15",
       null,
       null
     ]
   ],
-  "current_streak": 5,
-  "longest_streak": 5,
+  "current_streak": 6,
+  "longest_streak": 6,
   "credit": "by mert olgun"
 }
