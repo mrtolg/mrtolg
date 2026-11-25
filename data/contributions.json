@@ -1,7 +1,7 @@
 {
   "user": "mrtolg",
-  "total": 185,
-  "heading_total": 185,
+  "total": 186,
+  "heading_total": 186,
   "days": [
     {
       "date": "2025-11-23",
@@ -1835,6 +1835,11 @@
     },
     {
       "date": "2026-11-24",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-11-25",
       "count": 0,
       "level": 0
     }
@@ -2312,13 +2317,13 @@
       "2026-11-22",
       "2026-11-23",
       "2026-11-24",
-      null,
+      "2026-11-25",
       null,
       null,
       null
     ]
   ],
-  "current_streak": 46,
-  "longest_streak": 46,
+  "current_streak": 47,
+  "longest_streak": 47,
   "credit": "by mert olgun"
 }
